@@ -5,6 +5,9 @@
 # NanoTabVLM: Small Model, Great Achievements
 
 
+[中文](./README.md) | English
+
+
 ## Introduction
 NanoTabVLM is a lightweight multimodal model with only 0.5B parameters, yet it possesses powerful table processing capabilities. It specializes in accurately converting tables in images into HTML format text. It excels in conversion precision, with an average Edit Distance less than 1/7 of that of 8B models and only 1/10 of that of VLM models with the same level of parameters. It can flexibly handle various complex table styles such as merged rows, merged columns, and spaces. In the field of multimodal/visual multimodal understanding, it plays an efficient role, providing a convenient and accurate solution for the digital conversion of tables.
 
