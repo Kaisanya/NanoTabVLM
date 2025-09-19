@@ -11,17 +11,17 @@
 ## Introduction
 NanoTabVLM is a lightweight multimodal model with only 0.5B parameters, yet it possesses powerful table processing capabilities. It specializes in accurately converting tables in images into HTML format text. It excels in conversion precision, with an average Edit Distance less than 1/7 of that of 8B models and only 1/10 of that of VLM models with the same level of parameters. It can flexibly handle various complex table styles such as merged rows, merged columns, and spaces. In the field of multimodal/visual multimodal understanding, it plays an efficient role, providing a convenient and accurate solution for the digital conversion of tables.
 
-Comparative experiments with several other models fully demonstrate the excellent performance of NanoTabVLM. The specific results are as follows:
+Comparative experiments with several other models fully demonstrate the excellent performance of NanoTabVLM. The specific results are as follows (Table<sup>Edit</sup>↓) :
 
-| Model                   | Size | all    | zh       | en     | span   | blank  |
-|----------------------|------|--------|----------|--------|--------|--------|
-| GLM-4.1V-9B-Thinking | 9B   | 0.1537 | 0.1663   | 0.1411 | 0.1790 | 0.1175 |
-| InternVL3.5-8B       | 8B   | 0.1365 | 0.1454   | 0.1274 | 0.1580 | 0.1036 |
-| InternVL3.5-4B       | 4B   | 0.1678 | 0.1737   | 0.1619 | 0.1886 | 0.1347 |
-| InternVL3.5-2B       | 2B   | 0.1678 | 0.1663   | 0.1693 | 0.1906 | 0.1305 |
-| InternVL3.5-1B       | 1B   | 0.2021 | 0.2021   | 0.2020 | 0.2293 | 0.1581 |
-| MiniCPM-V 4.5        | 8B   | 0.1576 | 0.1639   | 0.1513 | 0.1844 | 0.1177 |
-| NanoTabVLM           | 0.5B | 0.0221 | 0.0225   | 0.0196 | 0.0233 | 0.0161 |
+| 模型                   | Size | all                     | zh                      | en                      | span                    | blank                   |
+|----------------------|------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
+| GLM-4.1V-9B-Thinking | 9B   | 0.1537                  | 0.1663                  | 0.1411                  | 0.1790                  | 0.1175                  |
+| InternVL3.5-8B       | 8B   | 0.1365                  | 0.1454                  | 0.1274                  | 0.1580                  | 0.1036                  |
+| InternVL3.5-4B       | 4B   | 0.1678                  | 0.1737                  | 0.1619                  | 0.1886                  | 0.1347                  |
+| InternVL3.5-2B       | 2B   | 0.1678                  | 0.1663                  | 0.1693                  | 0.1906                  | 0.1305                  |
+| InternVL3.5-1B       | 1B   | 0.2021                  | 0.2021                  | 0.2020                  | 0.2293                  | 0.1581                  |
+| MiniCPM-V 4.5        | 8B   | 0.1576                  | 0.1639                  | 0.1513                  | 0.1844                  | 0.1177                  |
+| NanoTabVLM           | 0.5B | <strong>0.0221</strong> | <strong>0.0225</strong> | <strong>0.0196</strong> | <strong>0.0233</strong> | <strong>0.0161</strong> |
 
 **Indicator Explanation**:
 - `all`: Represents all table image data.
@@ -29,6 +29,7 @@ Comparative experiments with several other models fully demonstrate the excellen
 - `en`: Represents English tables.
 - `span`: Represents tables with merged rows and columns.
 - `blank`: Represents tables with empty cells.
+- The evaluation metric uses Table<sup>Edit</sup> of OmniDocBench, which measures the difference between the table parsing result and the real table by edit distance (the number of edit operations). The smaller the value, the more accurate the parsing.
 
 <div align="center">
   <video controls width="80%" loop>
