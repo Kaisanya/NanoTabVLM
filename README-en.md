@@ -9,19 +9,21 @@
 
 
 ## Introduction
-NanoTabVLM is a lightweight multimodal model with only 0.5B parameters, yet it possesses powerful table processing capabilities. It specializes in accurately converting tables in images into HTML format text. It excels in conversion precision, with an average Edit Distance less than 1/7 of that of 8B models and only 1/10 of that of VLM models with the same level of parameters. It can flexibly handle various complex table styles such as merged rows, merged columns, and spaces. In the field of multimodal/visual multimodal understanding, it plays an efficient role, providing a convenient and accurate solution for the digital conversion of tables.
+NanoTabVLM is a lightweight multimodal model with only 0.25 billion parameters, yet it boasts powerful table processing capabilities. It focuses on accurately converting tables in images into HTML-format text and delivers outstanding performance in conversion accuracy. Its average Edit Distance is less than 1/7 of that of 8B-parameter models, and even only 1/10 of that of VLM models with the same parameter scale. Moreover, it can flexibly handle various complex table styles such as cross-row, cross-column, and tables containing blank spaces. In the field of multimodal/visual multimodal understanding, it plays an efficient role and provides a convenient and accurate solution for the digital conversion of tables.  
+As an upgraded and iterative version of this series, NanoTabVLM V2 has further broken the boundary between "lightweight" and "high performance" — it has only **0.08B parameters (80M parameters)**, which is merely 30% of the parameter count of the V1 version. However, it has achieved performance surpassing the V1 version in the core task of converting image tables to HTML. Under the same test benchmark, the average Edit Distance of NanoTabVLM V2 is only 1/2 of that of the V1 version. It not only significantly outperforms the original NanoTabVLM but also demonstrates an overwhelming advantage over traditional VLM models with parameter counts dozens of times (such as 2B and 4B-parameter models) or even hundreds of times (such as 8B and 9B-parameter models) that of itself. Even when dealing with complex table scenarios like cross-row, cross-column, and tables with empty cells, it can still maintain extremely high conversion accuracy. It provides a better table digitalization solution for scenarios with more stringent requirements on deployment resources and pursuit of ultimate efficiency (such as edge devices and lightweight office tools).
+
 
 Comparative experiments with several other models fully demonstrate the excellent performance of NanoTabVLM. The specific results are as follows (Table<sup>Edit</sup>↓) :
 
-| 模型                   | Size | all                     | zh                      | en                      | span                    | blank                   |
-|----------------------|------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
-| GLM-4.1V-9B-Thinking | 9B   | 0.1537                  | 0.1663                  | 0.1411                  | 0.1790                  | 0.1175                  |
-| InternVL3.5-8B       | 8B   | 0.1365                  | 0.1454                  | 0.1274                  | 0.1580                  | 0.1036                  |
-| InternVL3.5-4B       | 4B   | 0.1678                  | 0.1737                  | 0.1619                  | 0.1886                  | 0.1347                  |
-| InternVL3.5-2B       | 2B   | 0.1678                  | 0.1663                  | 0.1693                  | 0.1906                  | 0.1305                  |
-| InternVL3.5-1B       | 1B   | 0.2021                  | 0.2021                  | 0.2020                  | 0.2293                  | 0.1581                  |
-| MiniCPM-V 4.5        | 8B   | 0.1576                  | 0.1639                  | 0.1513                  | 0.1844                  | 0.1177                  |
-| NanoTabVLM           | 0.5B | <strong>0.0221</strong> | <strong>0.0225</strong> | <strong>0.0196</strong> | <strong>0.0233</strong> | <strong>0.0161</strong> |
+| 模型                   | Size                   | all                     | zh                      | en                      | span                    | blank                   |
+|----------------------|------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
+| GLM-4.1V-9B-Thinking | 9B                     | 0.1537                  | 0.1663                  | 0.1411                  | 0.1790                  | 0.1175                  |
+| InternVL3.5-8B       | 8B                     | 0.1365                  | 0.1454                  | 0.1274                  | 0.1580                  | 0.1036                  |
+| InternVL3.5-4B       | 4B                     | 0.1678                  | 0.1737                  | 0.1619                  | 0.1886                  | 0.1347                  |
+| InternVL3.5-2B       | 2B                     | 0.1678                  | 0.1663                  | 0.1693                  | 0.1906                  | 0.1305                  |
+| InternVL3.5-1B       | 1B                     | 0.2021                  | 0.2021                  | 0.2020                  | 0.2293                  | 0.1581                  |
+| NanoTabVLM           | 0.5B                   | 0.0221                  | 0.0225                  | 0.0196                  | 0.0233                  | 0.0161                  |
+| NanoTabVLM V2        | <strong>0.08B</strong> | <strong>0.0134</strong> | <strong>0.0128</strong> | <strong>0.0140</strong> | <strong>0.0156</strong> | <strong>0.0086</strong> |
 
 **Indicator Explanation**:
 - `all`: Represents all table image data.
@@ -38,7 +40,7 @@ Comparative experiments with several other models fully demonstrate the excellen
 </div>
 
 ## Project Features
-- **Small parameter size, high performance**: With only 0.5B parameters, it outperforms 8B-scale VLM models in the task of converting image tables to HTML, with an average Edit Distance less than 1/7 of 8B models and 1/10 of VLM models with the same level of parameters.
+- **Small parameter size, high performance**: With only 0.08 billion parameters (compared to 0.25 billion in the V1 version), it outperforms VLM models of the 8B parameter scale in the task of converting image tables to HTML, with an average Edit Distance that is less than 1/10 of that of 8B-parameter models.
 - **Specialized and accurate function**: Specifically designed for converting image tables to HTML format, with extremely high accuracy of conversion results.
 - **Concise and clear structure**: The model structure is simple, facilitating understanding, deployment, and secondary development.
 - **Complete training process**: It has gone through data construction, pretraining, supervised fine-tuning (SFT) and other links, and the model effect has been verified through comparative experiments.
@@ -51,7 +53,7 @@ Comparative experiments with several other models fully demonstrate the excellen
    cd NanoTabVLM
    ```
    
-2. **Download the SigLip2 model**:  
+2. **Download the SigLip2 model** ( This step is only required for the V1 version ) :  
    You can obtain the SigLip2 model file through the model download link specified in the project or related model repositories and place it in the `model/vision_model` directory.
    ```text
     git clone https://huggingface.co/google/siglip2-base-patch16-512
@@ -62,7 +64,7 @@ Comparative experiments with several other models fully demonstrate the excellen
     ```
    
 3. **Download the weight model**:  
-   Download the weights from [FuturEAnt/NanoTabVLM](https://modelscope.cn/models/FuturEAnt/NanoTabVLM), obtain the trained weight files of NanoTabVLM, and place them in the `checkpoint` directory.
+   Download the weights from [FuturEAnt/NanoTabVLMV2](https://modelscope.cn/models/FuturEAnt/NanoTabVLMV2) ( Download Link for Version V1: [FuturEAnt/NanoTabVLM](https://modelscope.cn/models/FuturEAnt/NanoTabVLM)), obtain the trained weight files of NanoTabVLM, and place them in the `checkpoint` directory.
 
 4. **Prepare the environment**:
    - Create a virtual environment (optional but recommended):  
@@ -80,6 +82,13 @@ Comparative experiments with several other models fully demonstrate the excellen
 
 ## NanoTabVLM Details
 ### Model Structure
+### NanoTabVLM V2
+NanoTabVLM V2 (a Vision-Language Model, VLM) is a lightweight multimodal model dedicated to table processing, with precise optimizations made in the selection of its core components. Its base language model is NanoTabLLM V2, which has undergone specialized training in table text understanding and structured generation—this enables it to efficiently parse table logic and output content in standardized formats. For the visual module, it is equipped with RepViT-M1.5; this lightweight visual encoder, while maintaining a low parameter count, can accurately capture key visual information of tables in images, such as row-column structures and cell distributions, providing high-quality feature support for subsequent conversion tasks. In terms of the tokenizer, it continues to adopt the mature Qwen3 tokenizer. Leveraging its excellent text segmentation capability, the tokenizer ensures the accurate processing of table-related text, helping the model strike a balance between "lightweight" and "high precision" in the task of converting image-based tables to HTML.
+<div align="center">
+  <img src="images/assets/structure_v2.png" alt="Model Structure">
+</div>
+
+### NanoTabVLM V1
 The base language model of NanoTabVLM (Vision-Language Model, VLM) is NanoTabLLM, which has been carefully designed and trained to possess good text understanding and generation capabilities. The visual part adopts SigLip2, which performs excellently in visual feature extraction and multimodal semantic alignment, and can effectively capture the visual information of tables in images. The tokenizer uses Qwen3's tokenizer, which, with Qwen3's mature tokenization ability, can accurately tokenize text and help the model better process text content.
 <div align="center">
   <img src="images/assets/structure.png" alt="Model Structure">
@@ -108,14 +117,4 @@ If you find NanoTabVLM helpful to you, please give us a star ⭐️ for support!
 - [MiniMind](https://github.com/jingyaogong/minimind)
 - [MiniMind-V](https://github.com/jingyaogong/minimind-v)
 - [SigLIP 2](https://arxiv.org/abs/2502.14786)
-```bibtex
-@misc{tschannen2025siglip2multilingualvisionlanguage,
-      title={SigLIP 2: Multilingual Vision-Language Encoders with Improved Semantic Understanding, Localization, and Dense Features}, 
-      author={Michael Tschannen and Alexey Gritsenko and Xiao Wang and Muhammad Ferjad Naeem and Ibrahim Alabdulmohsin and Nikhil Parthasarathy and Talfan Evans and Lucas Beyer and Ye Xia and Basil Mustafa and Olivier Hénaff and Jeremiah Harmsen and Andreas Steiner and Xiaohua Zhai},
-      year={2025},
-      eprint={2502.14786},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2502.14786}, 
-}
-```
+- [RepViT](https://arxiv.org/abs/2307.09283)
